@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 544.83 450.34" style="enable-background:new 0 0 544.83 450.34;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st1{font-family:'Monaco';}
+	.st2{font-size:12px;}
+	.st3{font-size:11.31px;}
+	.st4{fill:none;stroke:#000000;stroke-miterlimit:10;}
+	.st5{fill:none;stroke:#ED1C24;stroke-miterlimit:10;}
+	.st6{fill:#ED1C24;}
+	.st7{font-family:'KozGoPr6N-Regular-83pv-RKSJ-H';}
+</style>
+<circle class="st0" cx="44.92" cy="262.05" r="15.86"/>
+<text transform="matrix(1 0 0 1 41.3208 264.7936)" class="st1 st2">1</text>
+<circle class="st0" cx="129.75" cy="126.22" r="15.86"/>
+<circle class="st0" cx="129.75" cy="262.05" r="15.86"/>
+<text transform="matrix(1.061 0 0 1 126.1484 129.2563)" class="st1 st3">2</text>
+<text transform="matrix(1.061 0 0 1 126.1484 264.7936)" class="st1 st3">4</text>
+<g>
+	<g>
+		<line class="st4" x1="56.65" y1="251.36" x2="116.71" y2="142.67"/>
+		<g>
+			<path d="M119.63,137.38c-0.45,3-0.58,6.95,0.03,9.78l-3.33-3.81l-4.99-0.79C114.06,141.58,117.33,139.36,119.63,137.38z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="60.78" y1="262.05" x2="107.85" y2="262.05"/>
+		<g>
+			<path d="M113.89,262.05c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75C107.52,259.2,111.05,260.99,113.89,262.05z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="56.65" y1="272.32" x2="116.8" y2="385.97"/>
+		<g>
+			<path d="M119.63,391.3c-2.26-2.02-5.5-4.29-8.2-5.33l5.01-0.7l3.4-3.74C119.17,384.34,119.23,388.3,119.63,391.3z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 63.43 187.0865)" class="st1 st2">0,1</text>
+<text transform="matrix(1 0 0 1 123.6438 65.2508)" class="st1 st2">0,1</text>
+<text transform="matrix(1 0 0 1 76.5333 257.2127)" class="st1 st2">2-9</text>
+<circle class="st0" cx="214.58" cy="126.22" r="15.86"/>
+<text transform="matrix(1.061 0 0 1 210.976 128.966)" class="st1 st3">3</text>
+<g>
+	<g>
+		<line class="st5" x1="145.61" y1="126.22" x2="192.68" y2="126.22"/>
+		<g>
+			<path class="st6" d="M198.71,126.22c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75
+				C192.35,123.37,195.87,125.17,198.71,126.22z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 168.562 121.3851)" class="st1 st2">b</text>
+<text transform="matrix(1 0 0 1 203.7749 105.9288)" class="st1 st2">BIN</text>
+<text transform="matrix(1 0 0 1 70.6311 317.2127)" class="st1 st2">,</text>
+<circle class="st0" cx="129.75" cy="404.16" r="15.86"/>
+<text transform="matrix(1 0 0 1 126.1484 406.909)" class="st1 st2">6</text>
+<g>
+	<g>
+		<path class="st4" d="M119.6,112.1c0,0-10.15-1.04-10.15-21.07c0-10.92,9.63-20.81,21.98-20.81c17.65,0,21.98,11.71,21.98,21.98
+			c0,10.13-4.54,15.17-8.46,17.64"/>
+		<g>
+			<path d="M139.38,112.1c2.2-2.08,4.74-5.12,6-7.73l0.28,5.05l3.45,3.7C146.35,112.23,142.4,111.96,139.38,112.1z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="129.75" y1="142.08" x2="129.75" y2="240.15"/>
+		<g>
+			<path d="M129.75,246.18c-1.05-2.84-2.85-6.36-4.76-8.55l4.76,1.72l4.75-1.72C132.6,239.82,130.8,243.34,129.75,246.18z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 134.8092 219.6318)" class="st1 st2">2-9</text>
+<path class="st0" d="M214.58,280.12c-8.76,0-15.86-7.1-15.86-15.86s7.1-15.86,15.86-15.86s15.86,7.1,15.86,15.86
+	S223.34,280.12,214.58,280.12"/>
+<text transform="matrix(1.061 0 0 1 210.976 267.0073)" class="st1 st3">5</text>
+<g>
+	<g>
+		<line class="st5" x1="145.61" y1="264.26" x2="192.68" y2="264.26"/>
+		<g>
+			<path class="st6" d="M198.71,264.26c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75
+				C192.35,261.41,195.87,263.21,198.71,264.26z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 168.562 259.4263)" class="st1 st2">d</text>
+<text transform="matrix(1 0 0 1 203.7749 243.97)" class="st1 st2">DEC</text>
+<text transform="matrix(1 0 0 1 126.627 382.0111)" class="st1 st2">COM</text>
+<text transform="matrix(1 0 0 1 121.9506 335.2928)" class="st1 st2">0-9</text>
+<g>
+	<g>
+		<path class="st4" d="M141.59,277.91c0,0,10.15,1.04,10.15,21.07c0,10.92-9.63,20.81-21.98,20.81c-17.65,0-21.98-11.71-21.98-21.98
+			c0-10.13,4.54-15.17,8.46-17.64"/>
+		<g>
+			<path d="M121.81,277.91c-2.2,2.08-4.74,5.12-6,7.73l-0.28-5.05l-3.45-3.7C114.84,277.78,118.79,278.05,121.81,277.91z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st5" x1="139.61" y1="138.64" x2="200.39" y2="247.81"/>
+		<g>
+			<path class="st6" d="M203.32,253.08c-2.3-1.97-5.59-4.17-8.31-5.15l4.99-0.81l3.32-3.82
+				C202.72,246.14,202.86,250.09,203.32,253.08z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 163.8083 173.7612)" class="st1 st2">d</text>
+<circle class="st0" cx="369.66" cy="262.05" r="15.86"/>
+<text transform="matrix(1 0 0 1 366.0547 264.7936)" class="st1 st2">1</text>
+<circle class="st0" cx="454.48" cy="126.22" r="15.86"/>
+<circle class="st0" cx="454.48" cy="262.05" r="15.86"/>
+<text transform="matrix(1.061 0 0 1 450.8823 129.2563)" class="st1 st3">2</text>
+<text transform="matrix(1.061 0 0 1 450.8823 264.7936)" class="st1 st3">4</text>
+<g>
+	<g>
+		<line class="st4" x1="381.38" y1="251.36" x2="441.44" y2="142.67"/>
+		<g>
+			<path d="M444.36,137.38c-0.45,3-0.58,6.95,0.03,9.78l-3.33-3.81l-4.99-0.79C438.79,141.58,442.07,139.36,444.36,137.38z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="385.52" y1="262.05" x2="432.59" y2="262.05"/>
+		<g>
+			<path d="M438.62,262.05c-2.84,1.05-6.36,2.85-8.55,4.76l1.72-4.76l-1.72-4.75C432.26,259.2,435.78,260.99,438.62,262.05z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="381.38" y1="272.32" x2="441.54" y2="385.97"/>
+		<g>
+			<path d="M444.36,391.3c-2.26-2.02-5.5-4.29-8.2-5.33l5.01-0.7l3.4-3.74C443.9,384.34,443.96,388.3,444.36,391.3z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 388.1639 187.0865)" class="st1 st2">0,1</text>
+<text transform="matrix(1 0 0 1 448.3777 65.2508)" class="st1 st2">0,1</text>
+<text transform="matrix(1 0 0 1 401.2672 257.2127)" class="st1 st2">2-9</text>
+<text transform="matrix(1 0 0 1 474.026 129.2561)" class="st1 st2">BIN</text>
+<text transform="matrix(1 0 0 1 395.3651 317.2127)" class="st1 st2">,</text>
+<circle class="st0" cx="454.48" cy="404.16" r="15.86"/>
+<text transform="matrix(1 0 0 1 450.8823 406.909)" class="st1 st2">6</text>
+<g>
+	<g>
+		<path class="st4" d="M444.34,112.1c0,0-10.15-1.04-10.15-21.07c0-10.92,9.63-20.81,21.98-20.81c17.65,0,21.98,11.71,21.98,21.98
+			c0,10.13-4.54,15.17-8.46,17.64"/>
+		<g>
+			<path d="M464.11,112.1c2.2-2.08,4.74-5.12,6-7.73l0.28,5.05l3.45,3.7C471.08,112.23,467.14,111.96,464.11,112.1z"/>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<line class="st4" x1="454.48" y1="142.08" x2="454.48" y2="240.15"/>
+		<g>
+			<path d="M454.48,246.18c-1.05-2.84-2.85-6.36-4.76-8.55l4.76,1.72l4.75-1.72C457.33,239.82,455.54,243.34,454.48,246.18z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 459.5431 219.6318)" class="st1 st2">2-9</text>
+<text transform="matrix(1 0 0 1 474.0261 267.0068)" class="st1 st2">DEC</text>
+<text transform="matrix(1 0 0 1 451.3609 382.0111)" class="st1 st2">COM</text>
+<text transform="matrix(1 0 0 1 446.6845 335.2928)" class="st1 st2">0-9</text>
+<g>
+	<g>
+		<path class="st4" d="M466.32,277.91c0,0,10.15,1.04,10.15,21.07c0,10.92-9.63,20.81-21.98,20.81c-17.65,0-21.98-11.71-21.98-21.98
+			c0-10.13,4.54-15.17,8.46-17.64"/>
+		<g>
+			<path d="M446.55,277.91c-2.2,2.08-4.74,5.12-6,7.73l-0.28-5.05l-3.45-3.7C439.58,277.78,443.52,278.05,446.55,277.91z"/>
+		</g>
+	</g>
+</g>
+<text transform="matrix(1 0 0 1 12.9376 24.83)" class="st7 st2">問題3(1)</text>
+<text transform="matrix(1 0 0 1 23.7983 49.6553)" class="st7 st2">問題2(1)が以下だったが、b, dがなくなる</text>
+</svg>
