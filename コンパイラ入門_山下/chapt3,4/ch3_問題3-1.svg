@@ -121,7 +121,7 @@
 <circle class="st1" cx="454.48" cy="126.22" r="15.86"/>
 <circle class="st1" cx="454.48" cy="262.05" r="15.86"/>
 <text transform="matrix(1.061 0 0 1 450.8823 129.2563)" class="st2 st4">2</text>
-<text transform="matrix(1.061 0 0 1 450.8823 264.7936)" class="st2 st4">4</text>
+<text transform="matrix(1.061 0 0 1 450.8823 264.7936)" class="st2 st4">3</text>
 <g>
 	<g>
 		<line class="st5" x1="381.38" y1="251.36" x2="441.44" y2="142.67"/>
@@ -152,7 +152,7 @@
 <text transform="matrix(1 0 0 1 474.026 129.2561)" class="st2 st3">BIN</text>
 <text transform="matrix(1 0 0 1 395.3651 317.2127)" class="st2 st3">,</text>
 <circle class="st1" cx="454.48" cy="404.16" r="15.86"/>
-<text transform="matrix(1 0 0 1 450.8823 406.909)" class="st2 st3">6</text>
+<text transform="matrix(1 0 0 1 450.8823 406.909)" class="st2 st3">4</text>
 <g>
 	<g>
 		<path class="st5" d="M444.34,112.1c0,0-10.15-1.04-10.15-21.07c0-10.92,9.63-20.81,21.98-20.81c17.65,0,21.98,11.71,21.98,21.98
