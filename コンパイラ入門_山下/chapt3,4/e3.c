@@ -3,7 +3,7 @@
 
 enum {INT = 1, FLOAT, ID, NUM, REAL, COMMA, EQ, EX, QU, SEMI, ADD, SUB, MUL, DIV, LPAR, RPAR, ERROR};
 
-int status2token[] = {
+int state2token[] = {
     0,      //0
     0,      //1
     ID,     //2
@@ -35,19 +35,19 @@ char yytext[1024];
 int yylex(){
     char c;
 
-    int status = 1;
+    int state = 1;
     int LF = 0;
     int posLF = 0;
     int ptr=0;
 
     while(1){
-        // statusが0になったら、字句の区切り
-        if (status == 0) {
+        // stateが0になったら、字句の区切り
+        if (state == 0) {
             if (LF != 0) {
-                if ((status = status2token[LF]) > 0) {
-                    return status;
+                if ((state = state2token[LF]) > 0) {
+                    return state;
                 }
-                status = 1;
+                state = 1;
                 LF = 0;
                 posLF = 0;
                 ptr = 0;
@@ -60,57 +60,57 @@ int yylex(){
         if((c = getc(stdin)) == EOF ) break;
         yytext[ptr++] = c;
 
-        switch(status){
+        switch(state){
             case 1:
                 if (c == 'f') {
-                    status = LF = 2;
+                    state = LF = 2;
                     posLF = ptr;
                 }
                 else if (c == 'i') {
-                    status = LF = 8;
+                    state = LF = 8;
                     posLF = ptr;
                 }
                 else if (isalpha(c)) {
-                    status = LF = 7;
+                    state = LF = 7;
                     posLF = ptr;
                 }
                 else {
-                    status = 0;
+                    state = 0;
                 }
                 break;
             case 2:
                 if (c == 'l') {
-                    status = LF = 3;
+                    state = LF = 3;
                     posLF = ptr;
                 } else if (isalnum(c)) {
-                    status = LF = 7;
+                    state = LF = 7;
                     posLF = ptr;
                 } else {
-                    status = 0;
+                    state = 0;
                 }
                 break;
             case 7:
                 if (isalnum(c)) {
-                    status = LF = 7;
+                    state = LF = 7;
                     posLF = ptr;
                 } else {
-                    status = 0;
+                    state = 0;
                 }
                 break;
             case 8:
                 if (c == 'n') {
-                    status = LF = 9;
+                    state = LF = 9;
                     posLF = ptr;
                 } else if (isalnum(c)) {
-                    status = LF = 7;
+                    state = LF = 7;
                     posLF = ptr;
                 } else {
-                    status = 0;
+                    state = 0;
                 }
                 break;
         }
 
-        printf("%c status : %d, LF : %d, posLF : %d\n", c, status, LF, posLF);
+        printf("%c state : %d, LF : %d, posLF : %d\n", c, state, LF, posLF);
 
     }
     return 0;
