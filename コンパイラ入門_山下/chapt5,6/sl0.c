@@ -1846,9 +1846,47 @@ void yyfree (void * ptr )
 
 
 int yywrap(void){return 1;}
+
+void error(void){ printf("syntax error\n"); exit(1);}
+int tok;
+
+void advance(void){
+	// while((tok=yylex()) != 0){
+    //     printf("number = %d, string '%s'\n", tok, yytext);
+    // }
+	tok = yylex(); 
+	printf("number = %d, string '%s'\n", tok, yytext);
+}
+
+void eat(int t){
+	if(tok == t){
+		advance();
+	}else{
+		error();
+	}
+}
+
+void e0f(void){
+	if(tok != EOF){
+		error();
+	}
+}
+
+void Z(void);
+void Stmt(void);
+void Exp(void);
+
 int main(void){
-    int t;
-    while((t=yylex()) != 0){
-        printf("number = %d, string '%s'\n", t, yytext);
-    }
+	advance(); Z();
+}
+
+void Z(void){
+	Stmt(); e0f();
+}
+void Stmt(void){
+	eat(EX); Exp();
+}
+
+void Exp(void){
+	eat(NUM);
 }
