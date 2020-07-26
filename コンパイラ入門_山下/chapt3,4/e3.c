@@ -44,6 +44,11 @@ int yylex(){
         // stateが0になったら、字句の区切り
         if (state == 0) {
             if (LF != 0) {
+                while(ptr > posLF){
+                    ungetc(yytext[--ptr], stdin);
+                }
+                yytext[ptr] = 0;
+
                 if ((state = state2token[LF]) > 0) {
                     return state;
                 }
@@ -51,7 +56,8 @@ int yylex(){
                 LF = 0;
                 posLF = 0;
                 ptr = 0;
-            } else {
+
+            }else {
                 printf("ERROR : \n");
                 return 0;
             }
@@ -65,13 +71,29 @@ int yylex(){
                 if (c == 'f') {
                     state = LF = 2;
                     posLF = ptr;
-                }
-                else if (c == 'i') {
+                }else if (c == 'i') {
                     state = LF = 8;
                     posLF = ptr;
-                }
-                else if (isalpha(c)) {
+                }else if (isalpha(c)) {
                     state = LF = 7;
+                    posLF = ptr;
+                }else if (c == '0') {
+                    state = LF = 11;
+                    posLF = ptr;
+                }else if (isdigit(c)) {
+                    state = LF = 14;
+                    posLF = ptr;
+                }else if (c == '.') {
+                    state = 15;//state = LF = 15;
+                    posLF = ptr;
+                }else if (c == '/') {
+                    state = LF = 16;
+                    posLF = ptr;
+                }else if (c == '\n' || c == '\t' || c == ' ') {
+                    state = LF = 20;
+                    posLF = ptr;
+                }else if (c == '+') {
+                    state = LF = 21;
                     posLF = ptr;
                 }
                 else {
@@ -82,10 +104,10 @@ int yylex(){
                 if (c == 'l') {
                     state = LF = 3;
                     posLF = ptr;
-                } else if (isalnum(c)) {
+                }else if (isalnum(c)) {
                     state = LF = 7;
                     posLF = ptr;
-                } else {
+                }else {
                     state = 0;
                 }
                 break;
@@ -93,7 +115,7 @@ int yylex(){
                 if (isalnum(c)) {
                     state = LF = 7;
                     posLF = ptr;
-                } else {
+                }else {
                     state = 0;
                 }
                 break;
@@ -101,16 +123,117 @@ int yylex(){
                 if (c == 'n') {
                     state = LF = 9;
                     posLF = ptr;
-                } else if (isalnum(c)) {
+                }else if (isalnum(c)) {
                     state = LF = 7;
                     posLF = ptr;
-                } else {
+                }else {
                     state = 0;
                 }
                 break;
+            case 9:
+                if (c == 't') {
+                    state = LF = 10;
+                    posLF = ptr;
+                }else if (isalnum(c)) {
+                    state = LF = 7;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 10:
+                if (isalnum(c)) {
+                    state = LF = 7;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 11:
+                if (isdigit(c)) {
+                    state = 12;//state = LF = 12;
+                    //posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 12:
+                if (isdigit(c)) {
+                    state = 12;//state = LF = 12;
+                    //posLF = ptr;
+                }else if (c == '.') {
+                    state = LF = 13;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 13:
+                if (isdigit(c)) {
+                    state = LF = 13;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 14:
+                if (isdigit(c)) {
+                    state = LF = 14;
+                    posLF = ptr;
+                }else if (c == '.') {
+                    state = LF = 13;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 15:
+                if (isdigit(c)) {
+                    state = LF = 13;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 16:
+                if (c == '*') {
+                    state = 17;//state = LF = 17;
+                    //posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 17:
+                if (isalnum(c) || c == ' ') {
+                    state = 17;//state = LF = 17;
+                    //posLF = ptr;
+                }else if (c == '*') {
+                    state = 18;//state = LF = 18;
+                    //posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 18:
+                if (c == '/') {
+                    state = LF = 19;
+                    posLF = ptr;
+                }else {
+                    state = 0;
+                }
+                break;
+            case 19:
+                state = 0;
+                break;
+            case 20:
+                state = 0;
+                break;
+            case 21:
+                state = 0;
+                break;
         }
 
-        printf("%c state : %d, LF : %d, posLF : %d\n", c, state, LF, posLF);
+        printf("%c %d state : %d, LF : %d, posLF : %d\n", c, ptr, state, LF, posLF);
 
     }
     return 0;
