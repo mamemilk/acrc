@@ -1,5 +1,5 @@
 %{
-    enum {INT, FLOAT, ID, NUM, REAL, COMMA, EQ, EX, QU, SEMI, ADD, SUB, MUL, DIV, LPAR, RPAR, ERROR};
+    //{INT, FLOAT, ID, NUM, REAL, COMMA, EQ, EX, QU, SEMI, ADD, SUB, MUL, DIV, LPAR, RPAR, ERROR};
 %}
 %%
 int                                 {return INT;    }
@@ -23,9 +23,9 @@ float                               {return FLOAT;  }
 .                                   {return ERROR;  }
 %%
 int yywrap(void){return 1;}
-int main(void){
-    int t;
-    while((t=yylex()) != 0){
-        printf("number = %d, string '%s'\n", t, yytext);
-    }
-}
+//int main(void){
+//    int t;
+//    while((t=yylex()) != 0){
+//        printf("number = %d, string '%s'\n", t, yytext);
+//    }
+//}
