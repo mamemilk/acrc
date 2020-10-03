@@ -31,8 +31,13 @@ LR(0)のオートマトンは、
 マーカ(●)が、終端記号の直前に現れたらシフト、マーカが規則の右辺末尾に現れたら還元する。
 
 
-構文解析表にしたときに、還元項の部分がよくわからん。
--> 終端記号すべてにR[]をかきのは、SLR構文解析への導入っぽい。
+```
+LR(0) : 全ての終端記号で還元する。
+SLR : Follow集合の終端記号で還元する。
+LR(1) : 終端記号によって還元する構文規則を変える。
+
+SLRは、一つだけ先読みしているから、SLR(1)だが、2,3で使うことがないのでSLRと表記される。
+```
 
 
 ## 問題1
@@ -74,35 +79,33 @@ LPAR LPAR NUM RPAR COMMA NUM RPAR EoF
 | 4   | 1 LPAR 5 LPAR 5 NUM 4         | RPAR COMMA NUM RPAR EoF               |
 | 5   | 1 LPAR 5 LPAR 5               | List RPAR COMMA NUM RPAR EoF          |
 | 6   | 1 LPAR 5 LPAR 5 List 3        | RPAR COMMA NUM RPAR EoF               |
-| 7   | 1 LPAR 5 LPAR 5 List 3        | RPAR COMMA NUM RPAR EoF               |
-| 8   | 1 LPAR 5 LPAR 5               | Seq RPAR COMMA NUM RPAR EoF           |
-| 9   | 1 LPAR 5 LPAR 5 Seq 7         | RPAR COMMA NUM RPAR EoF               |
-| 10  | 1 LPAR 5 LPAR 5 Seq 7 RPAR 9  | COMMA NUM RPAR EoF                    |
-| 11  | 1 LPAR 5                      | List COMMA NUM RPAR EoF               |
-| 12  | 1 LPAR 5 List 3               | COMMA NUM RPAR EoF                    |
-| 13  | 1 LPAR 5                      | Seq COMMA NUM RPAR EoF                |
-| 14  | 1 LPAR 5 Seq 7                | COMMA NUM RPAR EoF                    |
-| 15  | 1 LPAR 5 Seq 7 COMMA 6        | NUM RPAR EoF                          |
-| 16  | 1 LPAR 5 Seq 7 COMMA 6 NUM 4  | RPAR EoF                              |
-| 17  | 1 LPAR 5 Seq 7 COMMA 6        | List RPAR EoF                         |
-| 18  | 1 LPAR 5 Seq 7 COMMA 6 List 8 | RPAR EoF                              |
-| 19  | 1 LPAR 5                      | Seq RPAR EoF                          |
-| 20  | 1 LPAR 5 Seq 7                | RPAR EoF                              |
-| 21  | 1 LPAR 5 Seq 7 RPAR 9         | EoF                                   |
-| 22  | 1                             | List EoF                              |
-| 23  | 1 List 2                      | EoF                                   |
+| 7   | 1 LPAR 5 LPAR 5               | Seq RPAR COMMA NUM RPAR EoF           |
+| 8   | 1 LPAR 5 LPAR 5 Seq 7         | RPAR COMMA NUM RPAR EoF               |
+| 9   | 1 LPAR 5 LPAR 5 Seq 7 RPAR 9  | COMMA NUM RPAR EoF                    |
+| 10  | 1 LPAR 5                      | List COMMA NUM RPAR EoF               |
+| 11  | 1 LPAR 5 List 3               | COMMA NUM RPAR EoF                    |
+| 12  | 1 LPAR 5                      | Seq COMMA NUM RPAR EoF                |
+| 13  | 1 LPAR 5 Seq 7                | COMMA NUM RPAR EoF                    |
+| 14  | 1 LPAR 5 Seq 7 COMMA 6        | NUM RPAR EoF                          |
+| 15  | 1 LPAR 5 Seq 7 COMMA 6 NUM 4  | RPAR EoF                              |
+| 16  | 1 LPAR 5 Seq 7 COMMA 6        | List RPAR EoF                         |
+| 17  | 1 LPAR 5 Seq 7 COMMA 6 List 8 | RPAR EoF                              |
+| 18  | 1 LPAR 5                      | Seq RPAR EoF                          |
+| 19  | 1 LPAR 5 Seq 7                | RPAR EoF                              |
+| 20  | 1 LPAR 5 Seq 7 RPAR 9         | EoF                                   |
+| 21  | 1                             | List EoF                              |
+| 22  | 1 List 2                      | EoF                                   |
 
 
 
 
 ## 問題2
 
-$$
-LR状態S_iから、LR状態S_jへ張られた有効枝は高々1本であることを示せ
-$$
+```
+LR状態Siから、LR状態Sjへ張られた有効枝は高々1本であることを示せ
+```
 
-ギブアップ。
-
+![](./chapt7,8/closure_goto.drawio.svg)
 
 $$
 LR状態S_iから、Aを読んで遷移するLR状態は、\\
@@ -114,10 +117,9 @@ goto(I,A) = \{[X \rightarrow \alpha A ● \beta] | [X \rightarrow \alpha ● A \
 
 Bを読んで遷移するLR状態は、\\
 goto(I,B) = \{[X \rightarrow \alpha B ● \beta] | [X \rightarrow \alpha ● B \beta]\}
-
 $$
 
-で同じ集合になるはずないので？なのか。。。有効枝が一本になる気もするが、証明はできず。
+で、先読み記号が変わればGOTOが変わる。
 
 
 ## 問題3 
@@ -144,12 +146,15 @@ LRオートマトンの解析表は、以下？([Seq -> ●]の還元でぶつ�
 ### SLRオートマトン
 ![](./chapt7,8/slr_automaton.drawio.svg)
 
+
 |     | NUM  | EoF  | Seq  |
 | --- | ---- | ---- | ---- |
-| 1   | S(3) |      | S(2) |
+| 1   | S(3) | R[1] | S(2) |
 | 2   |      | A    |
 | 3   | S(3) | R[1] | S(4) |
 | 4   |      | R[2] |
+
+
 
 
 ```
@@ -184,30 +189,34 @@ NUM NUM EoF
 LR(0)オートマトン
 ![](./chapt7,8/lr_automaton_4.drawio.svg)
 
-状態4で、Seqの還元と、S(5)への遷移で衝突があるため、LR(0)文法ではない。
+状態4で、LPARで、Seqの還元とS(4)への遷移で衝突があるため、LR(0)文法ではない。
 
 
 (2)
 SLRオートマトン
 ![](./chapt7,8/slr_automaton_4.drawio.svg)
 
-状態4のSeqの還元と、S(5)の遷移の衝突を、Seqの還元は先読み記号がEoFの時のみに限定することで回避できるため、SLR(0)文法である。
+状態4のSeqの還元と、S(4)の遷移の衝突を、Seqの還元は先読み記号がEoF/RPARの時のみに限定することで回避できるため、SLR(0)文法である。
 
 
 
 
 ## 問題5
 
-```
+```　　　　　　　　　
 0: Z → Input EoF
 1: Input → Seq
 2: Seq → ε
 3: Seq → EX Seq EX
 4: Seq → QU Seq QU
-
 ```
 
 (1)
 SLRオートマトン
 ![](./chapt7,8/slr_automaton_5.drawio.svg)
 
+状態1,4,7で、シフト/還元衝突が発生している。
+
+
+(2)
+![](./chapt7,8/lr1_automaton_5.drawio.svg)
