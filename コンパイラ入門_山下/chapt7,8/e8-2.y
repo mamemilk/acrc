@@ -1,4 +1,4 @@
-%token INT, FLOAT, ID, NUM, REAL, COMMA, EQ, EX, QU, SEMI, ADD, SUB, MUL, DIV, LPAR, RPAR, ERROR;
+%token INT  FLOAT  ID  NUM  REAL  COMMA  EQ  EX  QU  SEMI  ADD  SUB  MUL  DIV  LPAR  RPAR  ERROR;
 
 %%
 Program     : Exp {}

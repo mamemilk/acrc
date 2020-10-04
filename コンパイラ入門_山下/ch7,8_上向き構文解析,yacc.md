@@ -220,3 +220,62 @@ SLRオートマトン
 
 (2)
 ![](./chapt7,8/lr1_automaton_5.drawio.svg)
+
+
+
+
+
+
+
+# 8章 構文解析器生成系yacc
+
+サポートページに記載があるが、yacc記述のtoken定義は、","が不要で、スペースでよい。
+
+[サポートページ](https://www.saiensu.co.jp/search/?isbn=978-4-7819-1205-9&y=2008#support)
+
+## 問題1 
+
+左再帰的な文法の場合、還元が逐次行われるためスタックが一定数を超えず、
+左再帰的でない文法の場合、入力記号の終わりから還元をするため、スタックが増える。
+
+
+
+
+## 問題2
+
+作成したyacc記述は以下。lexは、教科書のものを用いる[sample.l](./chapt7,8/sample.l)。
+
+```
+%token INT  FLOAT  ID  NUM  REAL  COMMA  EQ  EX  QU  SEMI  ADD  SUB  MUL  DIV  LPAR  RPAR  ERROR;
+
+%%
+Program     : Exp {}
+Exp         : Exp ADD Term {}
+            | Exp SUB Term {}
+            | Term {}
+Term        : Term MUL Factor {}
+            | Term DIV Factor {}
+            | Factor {}
+Factor      : ID {}
+            | NUM {}
+            | LPAR Exp RPAR {}
+%%
+#include "lex.yy.c"
+int main(){
+    if(!yyparse()) printf("successfully ended\n");
+}
+int yyerror(char* s){printf("%s\n", s); return -1;}
+```
+
+```sh
+lex sample.l
+yacc e8-2.y
+gcc y.tab.c
+echo "100 * 100" | ./a.out 
+# successfully ended
+echo "(1*2)+10" | ./a.out 
+# successfully ended
+```
+
+
+
