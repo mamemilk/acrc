@@ -7,6 +7,8 @@
 #include "fig09_20.h"
 #define YYSTYPE node*
 
+YYSTYPE myval;
+
 int declType;
 %}
 
@@ -14,7 +16,7 @@ int declType;
 Program
   : DeAsInStmts 
               PrintStmts {
-      $$ = newTProgram(
+      myval = newTProgram(
              $1,
     		 $2);
     }
@@ -140,7 +142,7 @@ NumReal
 
 int main(int argc, char *argv[]) {
     if(!yyparse()){
-    	print(yylval);
+    	print(myval);
     }
 }
-int yyerror(char* s){ fprintf(stderr,"%s_n",s); }
+int yyerror(char* s){ fprintf(stderr,"%s_n",s); return 0;}
