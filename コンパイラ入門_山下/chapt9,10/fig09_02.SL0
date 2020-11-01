@@ -1,0 +1,5 @@
+   int x = 0, abc = 1, z1 = 66;
+   int z2 = 77;
+   !z2, abc;
+   ! x;      /* z1 is not used in this program */
+
