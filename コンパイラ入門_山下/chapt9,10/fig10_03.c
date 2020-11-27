@@ -15,4 +15,3 @@ node *castType(node *np, int type){
         } else             return newTI2F(np);
     } else return np;
 }
-

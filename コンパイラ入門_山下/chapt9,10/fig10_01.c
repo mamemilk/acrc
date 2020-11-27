@@ -14,12 +14,12 @@ void putVar(char* name, int type){
     for(i = 0; i < STidx; i++){
         if(strcmp(name,STname[i]) == 0){
             fprintf(stderr,
-                    "multiple declaration: %s_n",name); 
+                    "multiple declaration: %s\n",name); 
             exit(1); 
         }
     }
     if(STidx == N){
-        fprintf(stderr,"symbol table overflow_n"); 
+        fprintf(stderr,"symbol table overflow\n"); 
         exit(1);
     }
     STname[STidx] = name;
@@ -31,7 +31,7 @@ int getType(char* name){
     for(i = 0; i < STidx; i++){
         if(strcmp(name,STname[i]) == 0) return STtype[i];
     }
-    fprintf(stderr,"no declaration: %s_n",name);
+    fprintf(stderr,"no declaration: %s\n",name);
     exit(1);
 }
 node *getVal(char* name){
@@ -39,7 +39,7 @@ node *getVal(char* name){
     for(i = 0; i < STidx; i++){
         if(strcmp(name,STname[i]) == 0) return STval[i];
     }
-    fprintf(stderr,"no declaration: %s_n",name);
+    fprintf(stderr,"no declaration: %s\n",name);
     exit(1);
 }
 void updateVar(char* name, node *val){
@@ -50,7 +50,7 @@ void updateVar(char* name, node *val){
             return;
         }
     }
-    fprintf(stderr,"no declaration: %s_n",name);
+    fprintf(stderr,"no declaration: %s\n",name);
     exit(1);
 }
 
@@ -58,9 +58,10 @@ void printTable(){
     int i;
     for(i = 0; i < STidx; i++){
     switch(STtype[i]){
-    case TINT: printf("%d : int %s_n",i,STname[i]); break;
-    case TFLOAT: printf("%d : float %s_n",i,STname[i]); break;
-    default: fprintf(stderr,"ERROR: printTable %d_n",STtype[i]); exit(1);
+    case TINT: printf("%d : int %s\n",i,STname[i]); break;
+    case TFLOAT: printf("%d : float %s\n",i,STname[i]); break;
+    default: fprintf(stderr,"ERROR: printTable %d\n",STtype[i]); exit(1);
     }
     }
 }
+
