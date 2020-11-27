@@ -1,0 +1,33 @@
+
+
+
+
+
+->TProgram
+  ->TDeAsInSeq
+    ->TDecl(I,x)
+      ->TInt(I,0)
+    ->TDeAsInSeq
+      ->TDecl(I,abc)
+        ->TInt(I,1)
+      ->TDeAsInSeq
+        ->TDecl(I,z1)
+          ->TInt(I,66)
+        ->TDeAsInSeq
+          ->TDecl(I,z2)
+            ->TInt(I,77)
+          ->NULL
+  ->TPrintSeq
+    ->TPrint(?)
+      ->TVar(?,z2)
+    ->TPrintSeq
+      ->TPrint(?)
+        ->TVar(?,abc)
+      ->TPrintSeq
+        ->TNewline
+        ->TPrintSeq
+          ->TPrint(?)
+            ->TVar(?,x)
+          ->TPrintSeq
+            ->TNewline
+            ->NULL
