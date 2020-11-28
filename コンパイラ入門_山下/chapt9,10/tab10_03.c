@@ -14,11 +14,13 @@ void insertType(node *np){
     case TInput: case TVar:
         np->type = getType(np->name);
         break;
+
     case TAssign:
         np->type = getType(np->name);
         insertType(np->left);
         np->left = castType(np->left,np->type);
         break;
+        
     case TPrint:
         insertType(np->left);
         np->type = np->left->type;

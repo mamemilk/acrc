@@ -108,7 +108,7 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 3 "fig09_16.y"
+#line 3 "fig09_16_mg.y"
 
 #include <string.h>
 #include "fig09_04.h"
@@ -1383,7 +1383,7 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 18 "fig09_16.y"
+#line 18 "fig09_16_mg.y"
     {
       myval = newTProgram(
              (yyvsp[(1) - (2)]),
@@ -1392,47 +1392,47 @@ yyreduce:
     break;
 
   case 3:
-#line 25 "fig09_16.y"
+#line 25 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (2)]); }
     break;
 
   case 4:
-#line 28 "fig09_16.y"
+#line 28 "fig09_16_mg.y"
     { (yyval) = append((yyvsp[(1) - (3)]),(yyvsp[(2) - (3)])); }
     break;
 
   case 5:
-#line 30 "fig09_16.y"
+#line 30 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 6:
-#line 31 "fig09_16.y"
+#line 31 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 7:
-#line 32 "fig09_16.y"
+#line 32 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 8:
-#line 35 "fig09_16.y"
+#line 35 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(2) - (2)]); }
     break;
 
   case 9:
-#line 38 "fig09_16.y"
+#line 38 "fig09_16_mg.y"
     { declType = TINT; }
     break;
 
   case 10:
-#line 40 "fig09_16.y"
+#line 40 "fig09_16_mg.y"
     { declType = TFLOAT; }
     break;
 
   case 11:
-#line 42 "fig09_16.y"
+#line 42 "fig09_16_mg.y"
     {
       (yyval) = newTDeAsInSeq(
     		 (yyvsp[(1) - (1)]),
@@ -1441,7 +1441,7 @@ yyreduce:
     break;
 
   case 12:
-#line 47 "fig09_16.y"
+#line 47 "fig09_16_mg.y"
     {
       (yyval) = append(
     		 (yyvsp[(1) - (3)]),
@@ -1452,7 +1452,7 @@ yyreduce:
     break;
 
   case 13:
-#line 55 "fig09_16.y"
+#line 55 "fig09_16_mg.y"
     {
       (yyval) = newTDecl(
     		 (yyvsp[(1) - (1)])->name,
@@ -1462,7 +1462,7 @@ yyreduce:
     break;
 
   case 14:
-#line 61 "fig09_16.y"
+#line 61 "fig09_16_mg.y"
     {
       (yyval) = newTDecl(
     		 (yyvsp[(1) - (3)])->name,
@@ -1472,7 +1472,7 @@ yyreduce:
     break;
 
   case 15:
-#line 68 "fig09_16.y"
+#line 68 "fig09_16_mg.y"
     {
     (yyval) = newTDeAsInSeq(
     	   newTAssign(
@@ -1483,12 +1483,12 @@ yyreduce:
     break;
 
   case 16:
-#line 76 "fig09_16.y"
+#line 76 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(2) - (2)]); }
     break;
 
   case 17:
-#line 78 "fig09_16.y"
+#line 78 "fig09_16_mg.y"
     {
       (yyval) = newTDeAsInSeq(
     		 newTInput(
@@ -1498,7 +1498,7 @@ yyreduce:
     break;
 
   case 18:
-#line 84 "fig09_16.y"
+#line 84 "fig09_16_mg.y"
     {
       (yyval) = append(
     		 (yyvsp[(1) - (3)]),
@@ -1509,17 +1509,17 @@ yyreduce:
     break;
 
   case 19:
-#line 93 "fig09_16.y"
+#line 93 "fig09_16_mg.y"
     { (yyval) = NULL; }
     break;
 
   case 20:
-#line 96 "fig09_16.y"
+#line 96 "fig09_16_mg.y"
     { (yyval) = append((yyvsp[(1) - (3)]),(yyvsp[(2) - (3)])); }
     break;
 
   case 21:
-#line 98 "fig09_16.y"
+#line 98 "fig09_16_mg.y"
     {
       (yyval) = 
 	    append(
@@ -1531,7 +1531,7 @@ yyreduce:
     break;
 
   case 22:
-#line 107 "fig09_16.y"
+#line 107 "fig09_16_mg.y"
     {
       (yyval) = newTPrintSeq(
     		 newTPrint((yyvsp[(1) - (1)])),
@@ -1540,7 +1540,7 @@ yyreduce:
     break;
 
   case 23:
-#line 112 "fig09_16.y"
+#line 112 "fig09_16_mg.y"
     {
       (yyval) = 
 	    append(
@@ -1552,57 +1552,57 @@ yyreduce:
     break;
 
   case 24:
-#line 122 "fig09_16.y"
+#line 122 "fig09_16_mg.y"
     { (yyval)= newTAdd((yyvsp[(1) - (3)]),(yyvsp[(3) - (3)])); }
     break;
 
   case 25:
-#line 124 "fig09_16.y"
+#line 124 "fig09_16_mg.y"
     { (yyval)= newTSub((yyvsp[(1) - (3)]),(yyvsp[(3) - (3)])); }
     break;
 
   case 26:
-#line 125 "fig09_16.y"
+#line 125 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 27:
-#line 128 "fig09_16.y"
+#line 128 "fig09_16_mg.y"
     { (yyval)= newTMul((yyvsp[(1) - (3)]),(yyvsp[(3) - (3)])); }
     break;
 
   case 28:
-#line 130 "fig09_16.y"
+#line 130 "fig09_16_mg.y"
     { (yyval)= newTDiv((yyvsp[(1) - (3)]),(yyvsp[(3) - (3)])); }
     break;
 
   case 29:
-#line 131 "fig09_16.y"
+#line 131 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 30:
-#line 133 "fig09_16.y"
+#line 133 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 31:
-#line 134 "fig09_16.y"
+#line 134 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 32:
-#line 136 "fig09_16.y"
+#line 136 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(2) - (3)]); }
     break;
 
   case 33:
-#line 138 "fig09_16.y"
+#line 138 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
   case 34:
-#line 139 "fig09_16.y"
+#line 139 "fig09_16_mg.y"
     { (yyval) = (yyvsp[(1) - (1)]); }
     break;
 
@@ -1822,14 +1822,19 @@ yyreturn:
 }
 
 
-#line 140 "fig09_16.y"
+#line 140 "fig09_16_mg.y"
 
 #include "lex.yy.c"
 
 int main(int argc, char *argv[]) {
     if(!yyparse()){
+      checkSem_insertType(myval);
+      //insertType(myval);
+      printTable();
     	print(myval);
     }
+
+
 }
 int yyerror(char* s){ fprintf(stderr,"%s_n",s); return 0;}
 

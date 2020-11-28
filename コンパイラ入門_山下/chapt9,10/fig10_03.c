@@ -10,7 +10,7 @@ node *newTF2I(node *left){ return newnode(TF2I,TINT,NULL,0,0,left,NULL); }
 node *castType(node *np, int type){
     if(np->type != type){
         if(type == TINT) {
-		printf("warning: assignment to `int' from `float'_n");
+		printf("warning: assignment to `int' from `float'\n");
 		return newTF2I(np);
         } else             return newTI2F(np);
     } else return np;

@@ -142,9 +142,12 @@ NumReal
 
 int main(int argc, char *argv[]) {
     if(!yyparse()){
-      checkSem(myval);
+      checkSem_insertType(myval);
+      //insertType(myval);
       printTable();
     	print(myval);
     }
+
+
 }
 int yyerror(char* s){ fprintf(stderr,"%s_n",s); return 0;}
