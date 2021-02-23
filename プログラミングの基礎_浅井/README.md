@@ -4,7 +4,7 @@
 八木さんが、大学で、住井先生、大堀先生の授業を受けてた！！
 
 
-- macのocamlでカーソルキーが聞かなかったのが、これで解決するようだ。
+- macのocamlでカーソルキーがきかなかったのが、これで解決するようだ。
 
   https://program-shoshinsya.hatenablog.com/entry/2019/04/09/221148
 
