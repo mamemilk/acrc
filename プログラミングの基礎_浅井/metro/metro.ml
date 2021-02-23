@@ -396,7 +396,7 @@ let rec shokika lst kiten = match lst with
 let rec seiretsu_insert lst n = match lst with
     [] -> [n]
   | first :: rest
-       -> if first.kana <= n.kana then first :: seiretsu_insert rest n
+       -> if first.kana <  n.kana then first :: seiretsu_insert rest n
                                   else n :: first :: rest
 
 let rec seiretsu_sort lst = match lst with
@@ -427,7 +427,7 @@ let myogadani = {
 
 let test1 = hyoji myogadani = "丸ノ内線, 茗荷谷 (みょうがだに) "
 
-let test_list = [
+let test_list2 = [
  {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "有楽町線"};
  {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "南北線"};
  {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "半蔵門線"};
@@ -435,8 +435,47 @@ let test_list = [
  {kanji = "西ヶ原"; kana = "にしがはら"; romaji = "nishigahara"; shozoku = "南北線"};
 ]
 
-let test2 = seiretsu test_list = [
-  {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "半蔵門線"};
+let test2 = seiretsu test_list2 = [
+  {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "有楽町線"};
   {kanji = "西葛西"; kana = "にしかさい"; romaji = "nishi-kasai"; shozoku = "東西線"};
   {kanji = "西ヶ原"; kana = "にしがはら"; romaji = "nishigahara"; shozoku = "南北線"};
+  ];;
+
+
+let test_list3 = [
+  {kanji="赤坂見附"; kana="あかさかみつけ"; romaji="akasaka-mitsuke"; shozoku="丸ノ内線"};
+  {kanji="四ツ谷"; kana="よつや"; romaji="yotsuya"; shozoku="丸ノ内線"};
+  {kanji="四谷三丁目"; kana="よつやさんちょうめ"; romaji="yotsuya-sanchome"; shozoku="丸ノ内線"};
+  {kanji="新宿御苑前"; kana="しんじゅくぎょえんまえ"; romaji="shinjuku-gyoemmae"; shozoku="丸ノ内線"};
+  {kanji="新宿三丁目"; kana="しんじゅくさんちょうめ"; romaji="shinjuku-sanchome"; shozoku="丸ノ内線"};
+  {kanji="新宿"; kana="しんじゅく"; romaji="shinjuku"; shozoku="丸ノ内線"};
+  {kanji="西新宿"; kana="にししんじゅく"; romaji="nishi-shinjuku"; shozoku="丸ノ内線"};
+  {kanji="中野坂上"; kana="なかのさかうえ"; romaji="nakano-sakaue"; shozoku="丸ノ内線"};
+  {kanji="新中野"; kana="しんなかの"; romaji="shin-nakano"; shozoku="丸ノ内線"};
+  {kanji="東高円寺"; kana="ひがしこうえんじ"; romaji="higashi-koenji"; shozoku="丸ノ内線"};
+  {kanji="新高円寺"; kana="しんこうえんじ"; romaji="shin-koenji"; shozoku="丸ノ内線"};
+  {kanji="南阿佐ヶ谷"; kana="みなみあさがや"; romaji="minami-asagaya"; shozoku="丸ノ内線"};
+  {kanji="荻窪"; kana="おぎくぼ"; romaji="ogikubo"; shozoku="丸ノ内線"};
+  {kanji="中野新橋"; kana="なかのしんばし"; romaji="nakano-shimbashi"; shozoku="丸ノ内線"};
+  {kanji="中野富士見町"; kana="なかのふじみちょう"; romaji="nakano-fujimicho"; shozoku="丸ノ内線"};
+  {kanji="方南町"; kana="ほうなんちょう"; romaji="honancho"; shozoku="丸ノ内線"};
+  {kanji="四ツ谷"; kana="よつや"; romaji="yotsuya"; shozoku="南北線"};
   ]
+
+let test3 = seiretsu test_list3 = [
+  {kanji = "赤坂見附"; kana = "あかさかみつけ"; romaji = "akasaka-mitsuke"; shozoku = "丸ノ内線"};
+  {kanji = "荻窪"; kana = "おぎくぼ"; romaji = "ogikubo"; shozoku = "丸ノ内線"};
+  {kanji = "新高円寺"; kana = "しんこうえんじ"; romaji = "shin-koenji"; shozoku = "丸ノ内線"};
+  {kanji = "新宿"; kana = "しんじゅく"; romaji = "shinjuku"; shozoku = "丸ノ内線"};
+  {kanji = "新宿御苑前"; kana = "しんじゅくぎょえんまえ"; romaji = "shinjuku-gyoemmae"; shozoku = "丸ノ内線"};
+  {kanji = "新宿三丁目"; kana = "しんじゅくさんちょうめ"; romaji = "shinjuku-sanchome"; shozoku = "丸ノ内線"};
+  {kanji = "新中野"; kana = "しんなかの"; romaji = "shin-nakano"; shozoku = "丸ノ内線"};
+  {kanji = "中野坂上"; kana = "なかのさかうえ"; romaji = "nakano-sakaue"; shozoku = "丸ノ内線"};
+  {kanji = "中野新橋"; kana = "なかのしんばし"; romaji = "nakano-shimbashi"; shozoku = "丸ノ内線"};
+  {kanji = "中野富士見町"; kana = "なかのふじみちょう"; romaji = "nakano-fujimicho"; shozoku = "丸ノ内線"};
+  {kanji = "西新宿"; kana = "にししんじゅく"; romaji = "nishi-shinjuku"; shozoku = "丸ノ内線"};
+  {kanji = "東高円寺"; kana = "ひがしこうえんじ"; romaji = "higashi-koenji"; shozoku = "丸ノ内線"};
+  {kanji = "方南町"; kana = "ほうなんちょう"; romaji = "honancho"; shozoku = "丸ノ内線"};
+  {kanji = "南阿佐ヶ谷"; kana = "みなみあさがや"; romaji = "minami-asagaya"; shozoku = "丸ノ内線"};
+  {kanji = "四ツ谷"; kana = "よつや"; romaji = "yotsuya"; shozoku = "丸ノ内線"};
+  {kanji = "四谷三丁目"; kana = "よつやさんちょうめ"; romaji = "yotsuya-sanchome"; shozoku = "丸ノ内線"}]
