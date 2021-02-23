@@ -358,23 +358,20 @@ let global_ekikan_list = [
 
 
 let hyoji eki = match eki with
-  {kanji=kanji; shozoku=shozoku; kana=kana;} -> shozoku ^ ", " ^ kanji ^ " (" ^ kana ^ ") ";;
-
+  {kanji=kanji; shozoku=shozoku; kana=kana;} -> shozoku ^ ", " ^ kanji ^ " (" ^ kana ^ ") "
 
 let rec romaji_to_kanji romaji lst = match lst with
     [] -> ""
   | first :: rest ->
       if first.romaji = romaji then first.kanji
-      else romaji_to_kanji romaji rest;;
-
+      else romaji_to_kanji romaji rest
 
 let rec get_ekikan_kyori kanji1 kanji2 lst = match lst with
     [] -> infinity
   | first :: rest ->
       if ( first.kiten = kanji1 && first.shuten = kanji2 ) ||
          ( first.kiten = kanji2 && first.shuten = kanji1 ) then first.kyori
-      else get_ekikan_kyori kanji1 kanji2 rest;;
-
+      else get_ekikan_kyori kanji1 kanji2 rest
 
 let kyori_wo_hyoji romaji1 romaji2 =
   let kanji1 = romaji_to_kanji romaji1 global_ekimei_list in
@@ -384,32 +381,37 @@ let kyori_wo_hyoji romaji1 romaji2 =
   else if                kanji2 = "" then romaji2 ^ "という駅は存在しません。"
   else let kyori =  get_ekikan_kyori kanji1 kanji2 global_ekikan_list in
      if   kyori = infinity then kanji1 ^ "駅と" ^ kanji2 ^ "駅は繋がっていません。"
-     else         kanji1 ^ "駅から" ^ kanji2 ^ "駅までは" ^ string_of_float(kyori) ^ "kmです。";;
-
+     else         kanji1 ^ "駅から" ^ kanji2 ^ "駅までは" ^ string_of_float(kyori) ^ "kmです。"
 
 let rec make_eki_list lst = match lst with
     [] -> []
-  | first :: rest -> {namae=first.kanji; saitan_kyori=infinity; temae_list=[]} :: make_eki_list rest;;
+  | first :: rest -> {namae=first.kanji; saitan_kyori=infinity; temae_list=[]} :: make_eki_list rest
 
 let rec shokika lst kiten = match lst with
     [] -> []
   | first :: rest ->
       if first.namae = kiten then {namae=first.namae; saitan_kyori=0.; temae_list=[kiten]} :: shokika rest kiten
-                             else first :: shokika rest kiten ;;
-
+                             else first :: shokika rest kiten
 
 let rec seiretsu_insert lst n = match lst with
     [] -> [n]
   | first :: rest
        -> if first.kana <= n.kana then first :: seiretsu_insert rest n
-                                  else n :: first :: rest ;;
+                                  else n :: first :: rest
 
-let rec seiretsu lst = match lst with
+let rec seiretsu_sort lst = match lst with
     [] -> []
   | first :: rest
-      -> seiretsu_insert (seiretsu rest) first;;
+      -> seiretsu_insert (seiretsu_sort rest) first
 
+let rec seiretsu_pre lst kana =
+  match lst with
+      [] -> []
+    | first :: rest -> if first.kana = kana then (seiretsu_pre rest first.kana)
+                                             else first :: (seiretsu_pre rest first.kana)
 
+let seiretsu lst = let sorted = seiretsu_sort lst in
+                   seiretsu_pre sorted ""
 
 
 
@@ -421,6 +423,20 @@ let myogadani = {
   kana = "みょうがだに";
   romaji = "myogadani";
   shozoku="丸ノ内線";
-};;
+}
 
-hyoji myogadani ;;
+let test1 = hyoji myogadani = "丸ノ内線, 茗荷谷 (みょうがだに) "
+
+let test_list = [
+ {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "有楽町線"};
+ {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "南北線"};
+ {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "半蔵門線"};
+ {kanji = "西葛西"; kana = "にしかさい"; romaji = "nishi-kasai"; shozoku = "東西線"};
+ {kanji = "西ヶ原"; kana = "にしがはら"; romaji = "nishigahara"; shozoku = "南北線"};
+]
+
+let test2 = seiretsu test_list = [
+  {kanji = "永田町"; kana = "ながたちょう"; romaji = "nagatacho"; shozoku = "半蔵門線"};
+  {kanji = "西葛西"; kana = "にしかさい"; romaji = "nishi-kasai"; shozoku = "東西線"};
+  {kanji = "西ヶ原"; kana = "にしがはら"; romaji = "nishigahara"; shozoku = "南北線"};
+  ]
