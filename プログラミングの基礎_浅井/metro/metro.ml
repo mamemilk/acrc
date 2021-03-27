@@ -413,6 +413,23 @@ let rec seiretsu_pre lst kana =
 let seiretsu lst = let sorted = seiretsu_sort lst in
                    seiretsu_pre sorted ""
 
+let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae q.namae global_ekikan_list in
+                   if ekikan_kyori = infinity
+                     then q
+                     else
+                       if ekikan_kyori +. p.saitan_kyori >= q.saitan_kyori
+                         then q
+                         else {namae=q.namae; saitan_kyori=ekikan_kyori +. p.saitan_kyori; temae_list=q.namae::p.temae_list}
+
+let koushin p v = let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae q.namae global_ekikan_list in
+                   if ekikan_kyori = infinity
+                     then q
+                     else
+                       if ekikan_kyori +. p.saitan_kyori >= q.saitan_kyori
+                         then q
+                         else {namae=q.namae; saitan_kyori=ekikan_kyori +. p.saitan_kyori; temae_list=q.namae::p.temae_list} in
+                  List.map (koushin1 p) v
+
 
 
 
@@ -479,3 +496,26 @@ let test3 = seiretsu test_list3 = [
   {kanji = "南阿佐ヶ谷"; kana = "みなみあさがや"; romaji = "minami-asagaya"; shozoku = "丸ノ内線"};
   {kanji = "四ツ谷"; kana = "よつや"; romaji = "yotsuya"; shozoku = "丸ノ内線"};
   {kanji = "四谷三丁目"; kana = "よつやさんちょうめ"; romaji = "yotsuya-sanchome"; shozoku = "丸ノ内線"}]
+
+
+let eki1 = {namae = "赤坂見附"   ;saitan_kyori = 1.3     ; temae_list = ["赤坂見附";"四ツ谷"]}
+let eki2 = {namae = "国会議事堂前";saitan_kyori = infinity; temae_list = []}
+let eki3 = {namae = "溜池山王"   ;saitan_kyori = infinity; temae_list = []}
+
+let v = [eki2; eki3]
+
+let test_koushin1 = koushin1 eki1 eki2 = {
+  namae = "国会議事堂前"; saitan_kyori = 2.2;temae_list = ["国会議事堂前"; "赤坂見附"; "四ツ谷"]
+  };;
+let test_koushin = koushin eki1 v = [
+  {namae = "国会議事堂前"; saitan_kyori = 2.2; temae_list = ["国会議事堂前"; "赤坂見附"; "四ツ谷"]};
+  {namae = "溜池山王";    saitan_kyori = 2.2; temae_list = ["溜池山王"; "赤坂見附"; "四ツ谷"]}
+  ];;
+
+
+
+
+
+
+
+(* let eki_list = make_eki_list global_ekimei_list ;; *)
