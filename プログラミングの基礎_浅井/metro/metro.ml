@@ -383,15 +383,23 @@ let kyori_wo_hyoji romaji1 romaji2 =
      if   kyori = infinity then kanji1 ^ "駅と" ^ kanji2 ^ "駅は繋がっていません。"
      else         kanji1 ^ "駅から" ^ kanji2 ^ "駅までは" ^ string_of_float(kyori) ^ "kmです。"
 
-let rec make_eki_list lst = match lst with
+let rec make_eki_list_r lst = match lst with
     [] -> []
-  | first :: rest -> {namae=first.kanji; saitan_kyori=infinity; temae_list=[]} :: make_eki_list rest
+  | first :: rest -> {namae=first.kanji; saitan_kyori=infinity; temae_list=[]} :: make_eki_list_r rest
 
-let rec shokika lst kiten = match lst with
+let make_eki_list lst = List.map (fun first -> {namae=first.kanji; saitan_kyori=infinity; temae_list=[]}) lst
+
+let rec shokika_r lst kiten = match lst with
     [] -> []
   | first :: rest ->
-      if first.namae = kiten then {namae=first.namae; saitan_kyori=0.; temae_list=[kiten]} :: shokika rest kiten
-                             else first :: shokika rest kiten
+      if first.namae = kiten then {namae=first.namae; saitan_kyori=0.; temae_list=[kiten]} :: shokika_r rest kiten
+                             else first :: shokika_r rest kiten
+
+let shokika lst kiten = List.map (fun first -> if first.namae = kiten then {namae=first.namae; saitan_kyori=0.; temae_list=[kiten]} else first) lst
+
+
+let make_initial_eki_list lst kiten = List.map (fun eki -> if eki.kanji = kiten then {namae=eki.kanji; saitan_kyori=0.; temae_list=[kiten]}
+                                                                                else {namae=eki.kanji; saitan_kyori=infinity; temae_list=[]}) lst
 
 let rec seiretsu_insert lst n = match lst with
     [] -> [n]
@@ -421,7 +429,17 @@ let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae q.namae global_ek
                          then q
                          else {namae=q.namae; saitan_kyori=ekikan_kyori +. p.saitan_kyori; temae_list=q.namae::p.temae_list}
 
-let koushin p v = let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae q.namae global_ekikan_list in
+(* let koushin p v = let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae q.namae global_ekikan_list in
+                   if ekikan_kyori = infinity
+                     then q
+                     else
+                       if ekikan_kyori +. p.saitan_kyori >= q.saitan_kyori
+                         then q
+                         else {namae=q.namae; saitan_kyori=ekikan_kyori +. p.saitan_kyori; temae_list=q.namae::p.temae_list} in
+                  List.map (koushin1 p) v *)
+
+
+let koushin p v ekikan_list = let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae q.namae ekikan_list in
                    if ekikan_kyori = infinity
                      then q
                      else
@@ -430,8 +448,15 @@ let koushin p v = let koushin1 p q = let ekikan_kyori = get_ekikan_kyori p.namae
                          else {namae=q.namae; saitan_kyori=ekikan_kyori +. p.saitan_kyori; temae_list=q.namae::p.temae_list} in
                   List.map (koushin1 p) v
 
+let rec saitan_wo_bunri lst = match lst with
+    [] -> ( {namae = "";  saitan_kyori = infinity; temae_list = []}, [] )
+  | first :: rest ->
+      let rest_res = saitan_wo_bunri rest in
+      match rest_res with (min_rest, rest_rest) ->
+      if first.saitan_kyori < min_rest.saitan_kyori then (first,    List.filter (fun ele -> not (ele.namae = first.namae)) lst)
+                                                    else (min_rest, List.filter (fun ele -> not (ele.namae = min_rest.namae)) lst)
 
-
+ (* (saitan_wo_bunri rest).saitan_kyori then first *)
 
 (* test *)
 
@@ -505,9 +530,9 @@ let eki3 = {namae = "溜池山王"   ;saitan_kyori = infinity; temae_list = []}
 let v = [eki2; eki3]
 
 let test_koushin1 = koushin1 eki1 eki2 = {
-  namae = "国会議事堂前"; saitan_kyori = 2.2;temae_list = ["国会議事堂前"; "赤坂見附"; "四ツ谷"]
+  namae = "国会議事堂前"; saitan_kyori = 2.2; temae_list = ["国会議事堂前"; "赤坂見附"; "四ツ谷"]
   };;
-let test_koushin = koushin eki1 v = [
+let test_koushin = koushin eki1 v global_ekikan_list = [
   {namae = "国会議事堂前"; saitan_kyori = 2.2; temae_list = ["国会議事堂前"; "赤坂見附"; "四ツ谷"]};
   {namae = "溜池山王";    saitan_kyori = 2.2; temae_list = ["溜池山王"; "赤坂見附"; "四ツ谷"]}
   ];;
@@ -515,7 +540,10 @@ let test_koushin = koushin eki1 v = [
 
 
 
+let seiretsu_global_ekimei_list = seiretsu global_ekimei_list
+let eki_list = make_eki_list seiretsu_global_ekimei_list
+let shokika_list_1 = shokika eki_list "青山一丁目"
+let test_make_initial_eki_list = make_initial_eki_list seiretsu_global_ekimei_list "青山一丁目" = shokika_list_1;;
 
-
-
-(* let eki_list = make_eki_list global_ekimei_list ;; *)
+shokika_list_1;;
+saitan_wo_bunri shokika_list_1;;
