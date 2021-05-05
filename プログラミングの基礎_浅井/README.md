@@ -10,6 +10,10 @@
 
   hg(mercurial)は不要。installすると、膨大な関連ファイルが入れられてしまう。。。
 
+- サポートページはここ。
+
+  http://pllab.is.ocha.ac.jp/~asai/book/Top.html
+
 
 - 駅のデータはサポートページ。問題9-9
 
