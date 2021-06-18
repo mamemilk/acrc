@@ -582,6 +582,10 @@ let test1 = assoc "後楽園" [] = infinity
 let test2 = assoc "後楽園" [("新大塚", 1.2); ("後楽園", 1.8)] = 1.8
 let test3 = assoc "池袋" [("新大塚", 1.2); ("後楽園", 1.8)] = infinity
 
+type ekikan_tree_t =
+    Empty
+  | Node of ekikan_tree_t * string * (string * float) list * ekikan_tree_t
+
 
 (* 片方向のデータを挿入する関数 *)
 let rec insert1 ekikan_tree kiten shuten kyori = match ekikan_tree with
