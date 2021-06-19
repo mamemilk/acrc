@@ -456,11 +456,20 @@ let rec saitan_wo_bunri lst = match lst with
       if first.saitan_kyori < min_rest.saitan_kyori then (first,    List.filter (fun ele -> not (ele.namae = first.namae)) lst)
                                                     else (min_rest, List.filter (fun ele -> not (ele.namae = min_rest.namae)) lst)
 
+let print_eki eki = match eki with
+  {namae = n; saitan_kyori = s; temae_list = lst} -> match lst with
+      [] -> assert false (* この場合は起こりえない *)
+    | [a] -> print_string (a ^ " : " ^ string_of_float s ^ "km");
+	     print_newline ()
+    | a :: rest -> List.fold_right (fun b () -> print_string (b ^ ","))
+				   rest ();
+		   print_string (a ^ " : " ^ string_of_float s ^ "km");
+		   print_newline ()
+
 let rec dijkstra_main lst ekikan_lst = match lst with
     [] -> []
   | lst -> let (p, v) = saitan_wo_bunri lst in
     p :: dijkstra_main (koushin p v ekikan_lst) ekikan_lst
-
 
 
 let dijkstra shiten shuten =
@@ -475,6 +484,11 @@ let dijkstra shiten shuten =
                        else get_eki rest eki in
    get_eki saitan_list shuten_kanji
 
+let main romaji_kiten romaji_shuten =
+  let eki = dijkstra romaji_kiten romaji_shuten in
+  print_eki eki
+
+let _ = main Sys.argv.(1) Sys.argv.(2)
 
 (* test *)
 let myogadani = {
@@ -655,6 +669,10 @@ let global_ekikan_tree = inserts_ekikan Empty global_ekikan_list
 let test1 = get_ekikan_kyori "茗荷谷" "新大塚" global_ekikan_tree = 1.2
 let test2 = get_ekikan_kyori "茗荷谷" "池袋" global_ekikan_tree = infinity
 let test3 = get_ekikan_kyori "東京" "大手町" global_ekikan_tree = 0.6
+
+
+
+
 
 (* inserts_ekikan Empty global_ekikan_list;; *)
 
