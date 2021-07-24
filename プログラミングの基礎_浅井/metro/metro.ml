@@ -488,7 +488,7 @@ let main romaji_kiten romaji_shuten =
   let eki = dijkstra romaji_kiten romaji_shuten in
   print_eki eki
 
-let _ = main Sys.argv.(1) Sys.argv.(2)
+(* let _ = main Sys.argv.(1) Sys.argv.(2) *)
 
 (* test *)
 let myogadani = {
