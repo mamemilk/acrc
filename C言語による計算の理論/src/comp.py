@@ -142,7 +142,6 @@ def aprint(a):
 
 #デバッグ用
 def tuple2code(code):
-
     if type(code) is int:
         return code
     elif type(code) is tuple and len(code) == 1:
@@ -212,9 +211,12 @@ def comp(p, x):
             v = replace(v, a, b)
             pc += 1
         elif left(element(S,pc)) == 3:
+            # print("comp debug")
+            # aprint(v)
             a = element(element(S,pc), 2)
             b = element(element(S,pc), 3)
             v = replace(v, a, element(v,b))
+            # aprint(v)
             pc += 1
         elif left(element(S,pc)) == 4:
             a = element(element(S,pc), 2)
@@ -224,6 +226,8 @@ def comp(p, x):
             a = element(element(S,pc), 2)
             v = replace(v, a, element(v,a)-1)
             pc += 1
+            #print("type5 : decrement")
+            #aprint(v)
         elif left(element(S,pc)) == 6:
             a = element(element(S,pc), 2)
             b = element(element(S,pc), 3)
@@ -272,3 +276,13 @@ print(get_list(x))
 
 ans = comp(tashizan, x)
 print(ans)
+
+
+juu = tuple2code((10,))
+aprint(juu)
+aprint(pair(10,0))
+guusuu = tuple2code((1, 2, ((3,2,1), (6,2,4), (1,9), (5,2), (6,2,7), (1,6), (5,2), (1,2))))
+
+ans = comp(guusuu, juu)
+print(ans)
+
