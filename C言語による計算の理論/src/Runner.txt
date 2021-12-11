@@ -1,0 +1,12 @@
+{
+R a a R A
+R b b R b
+A a a R A
+A b a R A
+A . a R A
+B a b R B
+B b b R B
+B . b R B
+}
+
+<abbbaab>

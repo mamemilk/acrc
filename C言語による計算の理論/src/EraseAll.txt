@@ -1,0 +1,19 @@
+{
+1 a a R 1
+1 c c R 1
+1 b . R 1
+1 . . L 2
+2 . . L 2
+2 a a N 3
+2 c c N 4
+3 a a L 3
+3 c c L 4
+3 . a R 5 
+4 a a L 3
+4 c c L 4
+4 . c R 6
+5 a . R 2 
+6 c . R 2
+}
+
+<aabacbbaca>

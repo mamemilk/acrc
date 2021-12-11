@@ -1,0 +1,12 @@
+% 3-states busy beaver %
+
+{
+1 . X R 2
+1 X X L 3
+2 . X L 1
+2 X X R 2
+3 . X L 2
+3 X X N F
+}
+
+<>
