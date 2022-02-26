@@ -187,8 +187,19 @@ head -c 10485760  /dev/random > source.bin  # 10MB
 - コピーするサイズは、バッファサイズで割り切れるサイズ
 - ソースファイルが標準入力等で、readでEOF前に読み出しサイズより小さいサイズで読まれることはない。
 
+
 (1) : [copy2_lowio.c](./chap05/copy2_lowio.c)
 (2) : [copy2_highio.c](./chap05/copy2_highio.c)
+
+
+```c
+//読書会にて指摘あり．以下のコードで，上記制約必要なくなるだろう，と．．．おっしゃるトオリッス＞＜
+
+while ((sz = read(fdin, buf, COPYSIZE)) > 0) {
+        write(fdout, buf, sz);     /* COPYSIZEバイト書き込む */
+    }
+```
+
 
 (3)(4), 5.3
 

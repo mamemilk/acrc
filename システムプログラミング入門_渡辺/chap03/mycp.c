@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define BUFSIZE 512 
-
 int main(int argc, char *argv[]){
     FILE *fpin, *fpout;
     char buf;
