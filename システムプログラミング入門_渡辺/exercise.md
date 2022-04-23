@@ -328,6 +328,7 @@ input any key
 ```
 
 これを図示すると以下，，，だが，教科書との差分あり．
+図が間違ってるので差し替え。
 
 ![図](./chap08/8.1.drawio.svg)
 
@@ -343,9 +344,11 @@ input any key
 - genstring関数内でheap領域を確保する
 - mainで確保したpointerを渡してそこを上書く
 - global変数として確保する
+- 関数内でstatic変数として確保する．
 
-- [genstring.c](./chap08/genstring2.c)
+なお，8個要素のcharで，NULL文字入れてない．
 
+[genstring.c](./chap08/genstring2.c)
 
 
 # 9 
@@ -463,3 +466,26 @@ for(i=0;i<mul_num && (ret[i] = fork()) > 0;i++);
 (8966) for loop i=4
 (8966) End the child process
 ```
+
+# 11
+
+
+
+
+# 14
+
+## 14.1
+
+```sh
+>> cat /etc/services 
+ftp-data        20/tcp
+ftp             21/tcp
+fsp             21/udp          fspd
+ssh             22/tcp                          # SSH Remote Login Protocol
+telnet          23/tcp
+smtp            25/tcp          mail
+http            80/tcp          www             # WorldWideWeb HTTP
+```
+
+## 14.2 
+
