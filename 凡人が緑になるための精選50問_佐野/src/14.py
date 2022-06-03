@@ -1,5 +1,10 @@
 # https://atcoder.jp/contests/abc181/tasks/abc181_c
 
+"""
+八木さんの回答は，
+傾きが同じかを判別する案．こっちの方が確かに効率的．
+"""
+
 import itertools
 
 N = int(input())
@@ -28,12 +33,12 @@ for a,b,c in itertools.combinations(XY, 3):
     B = (c[0] - b[0], c[1] - b[1])
 
     if is_online(A,B):
-        print('yes')
+        print('Yes')
         is_yes = True
         break
 
 if is_yes:
     pass
 else:
-    print('no')
+    print('No')
 
