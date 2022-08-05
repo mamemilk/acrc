@@ -1,0 +1,63 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <h1>Chapter 3</h1>
+
+    <p>
+    <h2>[1]</h2>
+    (1) : 参照<br>
+    (2) : let<br>
+    (3) : const<br>
+    (4) : var<br>
+    </p>
+
+    <p>
+    <h2>[2][3]</h2>
+    scriptに記載
+    </p>
+
+    <p>
+    <h2>[4]</h2>
+    (1) : 空<br>
+    (2) : ユーザ<br>
+    (3) : 未定義<br>
+    </p>
+
+    <p>
+        <h2>[5][6]</h2>
+        scriptに記載
+        </p>
+    
+    <script>
+        const TAX_RATE = 1.1;
+        let productPrice = 1000;
+        let t0 = '商品の金額は' + productPrice + '円ですので，税込金額は' + productPrice * TAX_RATE + '円です．'
+        let t1 = `商品の金額は${productPrice}円ですので，税込金額は${productPrice * TAX_RATE}円です．`
+        console.log(t0);
+        console.log(t1);
+
+        console.log(12 ** 2 % 5);
+        console.log(BigInt(12) ** BigInt(2) % BigInt(5));
+        console.log(Number('0xfg'));
+
+        const counter = {num:1};
+        window.alert(counter['num'] = counter['num']+1);
+        window.alert(counter.num = counter.num+1);
+        
+        console.log(typeof null); //これはobject
+        console.log(100 + true); //101
+        console.log(1 + Number("hello")); //NaN
+        console.log(1 + Boolean("hello")); //2
+
+
+
+    </script>
+
+
+</body>
+
+</html>

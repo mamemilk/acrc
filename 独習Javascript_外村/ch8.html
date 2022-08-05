@@ -1,0 +1,119 @@
+<html>
+
+    <head>
+    </head>
+    
+    <body>
+    
+        <h1>Chapter 8</h1>
+    
+        <h2>練習問題8.1</h2>
+        <p id="pra8.1">
+        <script>
+            window.name = "花子";
+            function hello(){
+                console.log("こんにちは," + this.name);
+                return "こんにちは," + this.name;
+            }
+            const taro = {
+                name:"太郎",
+                hello: hello
+            }
+            document.getElementById("pra8.1").innerHTML = "function: " + hello() + "<br>" + "object: " + taro.hello();
+        </script>
+        </p>
+    
+        <h2>練習問題8.2</h2>
+        arrow演算子のため，レキシカルスコープになり，関数コンテキスト関係なく，最初に見つかったnameが使われる．そのため太郎になる．
+        
+        <p id="pra8.2">
+        <script>
+            window.name = "独習　太郎";
+            const which = () => {
+                console.log(this.name);
+                return this.name;
+            }
+
+            const hanako = {
+                name: "独習　花子",
+                callName(){
+                    return which();
+                }
+            }
+            //let text2 = document.getElementById("pra8.2").innerHTML;
+            document.getElementById("pra8.2").innerHTML = hanako.callName();
+            
+        </script>
+        </p>
+    
+        <h2>練習問題8.3</h2>
+        21が表示される．
+        <p id="pra8.3">
+        <script>
+            window.a = 10;
+            window.b = 11;
+            const obj = {
+                a: 5,
+                b: 7,
+                calc(){
+                    console.log(this.a + this.b)
+                }
+            }
+            setTimeout(obj.calc, 2000);
+            
+        </script>
+        </p>
+    
+        <h2>理解度チェック</h2>
+        <h3>[1]</h3>
+        <p>
+            1: グローバルコンテキスト<br>
+            2: 関数コンテキスト<br>
+            3: this<br>
+            4: コールスタック<br>
+        </p>
+        <h3>[2],[3]</h3>
+        <p>
+            [2]-1:<div id="c2.1"></div><br>
+            [2]-2:<div id="c2.2"></div><br>
+            [2]-3:<div id="c2.3"></div><br>
+            [2]-4:<div id="c2.4"></div><br>
+            [2]-5:<div id="c2.5"></div><br>
+            [3]<div id="c3.1"></div><br>
+            <script>
+                window.greeting = 'こんにちは';
+                function hello(){
+                    console.log(this.greeting);
+                    return this.greeting;
+                }
+                document.getElementById("c2.1").textContent = hello();
+
+                const dog = {
+                    greeting: 'ワンワン',
+                    hello
+                };
+                document.getElementById("c2.2").textContent = dog.hello();
+            
+                const gorilla = {
+                    greeting: 'ウホウホ',
+                    hello
+                };
+                document.getElementById("c2.3").textContent = gorilla.hello();
+                const transform = gorilla.hello;
+                document.getElementById("c2.4").textContent = transform();
+
+                setTimeout(gorilla.hello, 2000); // -> これは，こんにちは，になる．
+
+                document.getElementById("c2.5").textContent = 'こんにちは'
+
+                const new_gorilla = hello.bind(gorilla);
+                document.getElementById("c3.1").textContent = new_gorilla();
+
+
+
+            </script>
+        </p>
+    
+    </body>
+    
+    </html>

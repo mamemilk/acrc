@@ -1,0 +1,76 @@
+<html>
+
+    <head>
+    </head>
+    
+    <body>
+    
+        <h1>Chapter 4</h1>
+    
+        <p>
+        <h2>[1]</h2>
+        (1) : 算術<br>
+        (2) : オペランド<br>
+        (3) : 単項(一項でもよい?)<br>
+        </p>
+    
+        [2][3]は自明なので飛ばし．
+
+        <p>
+        <h2>[4]</h2>
+        (1) : false<br>
+        (2) : true<br>
+        (3) : 型<br>
+        </p>
+
+        <p>
+        <h2>[5]~[8]はscriptに記載</h2>
+        </p>
+        [7] : &&は，最初にでてきたfalsyなoperandを返す．全部truthyなら最後のoperandを返す．<br>
+        ||は，最初にでてきたtruthyなoperandを返す．全部falsyなら最後のoperandを返す．<br>
+
+
+        [8] ??はnullだったら，後ろのオペランドを返す．?.は，propがなければundefineを返す．
+        <script>
+
+            //練習問題4.5
+            let person = {name:"Bob", age:"32", male:true};
+            console.log(delete person); //delteはpropの削除はできたら，person自体はできないみたい．
+            console.log(delete person.age); 
+            console.log(person);
+            console.log(typeof person);
+            console.log(+person.age);
+            console.log(!person.male);
+            
+            let a;
+            console.log("[5]")
+            console.log(a);//null
+            console.log(a = 10);//10, a=10で10が返るから
+            console.log(a);//10
+
+            a = 0;
+            console.log("[6]")
+            console.log(a+=3);
+            console.log(a*=4);
+            console.log(a/=2);
+            console.log(a%=5);
+            console.log(a)
+            
+            console.log("[7]")
+            console.log( (0 || undefined) && "こんにちは"); //undefined
+            console.log( !(0 || undefined) && "こんにちは"); //こんにちは
+            
+
+            console.log("[8]")
+            console.log(null?"リンゴ":"バナナ");
+            console.log(null ?? "パイナップル");
+            console.log({apple:"リンゴ"}?.fruit ?? "バナナ");
+
+
+    
+        </script>
+    
+    
+    </body>
+    
+    </html>
