@@ -1,4 +1,6 @@
 #https://atcoder.jp/contests/abc201/tasks/abc201_b
+# 八木さんの回答が，早そう.
+# https://github.com/syagi/atcoder_training/blob/main/06_abc201b.py
 
 N = int(input())
 ST = []

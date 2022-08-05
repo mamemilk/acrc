@@ -1,7 +1,7 @@
 # https://atcoder.jp/contests/abc175/tasks/abc175_c
 
 """
--N / Dの答えが，切り上げで最初に間違う．
+-N // Dの答えが，切り上げで最初に間違う．
 """
 
 X, K, D = map(int, input().split())
