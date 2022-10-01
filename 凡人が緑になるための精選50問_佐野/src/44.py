@@ -3,6 +3,19 @@ https://atcoder.jp/contests/abc151/tasks/abc151_d
 
 賢い方法が考えつかず，全探索．
 
+上，右，下，左の探索は，まとめて書く方がバグりにくい．反省．
+
+                for h1, w1 in [(h0-1, w0),
+                               (h0+1, w0),
+                               (h0, w0-1),
+                               (h0, w0+1)]:
+                    if (h1 >= 0 and h1 < H and
+                        w1 >= 0 and w1 < W and
+                        S[h1][w1] == '.' and
+                        not check[h1][w1]):
+                        next.append((h1, w1))
+                        check[h1][w1] = True
+
 '''
 
 H, W = map(int, input().split())
