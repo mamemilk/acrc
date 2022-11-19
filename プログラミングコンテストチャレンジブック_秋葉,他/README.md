@@ -6,10 +6,10 @@
 - 
 
 Pythonでとりあえずやることにする．
+準備編は簡単なので飛ばす．
+
 
 ## 初級編
-
-準備編は簡単なので飛ばす．
 
 |                                 |     |
 | ------------------------------- | --- |
@@ -18,4 +18,21 @@ Pythonでとりあえずやることにする．
 | [ABC 104 C](./src/abc_104_c.py) |     |
 | [ARC 029 A](./src/arc_029_a.py) |     |
 | [ABC 002 D](./src/abc_002_d.py) |     |
-|                                 |     |
+| [ATC 001 A](./src/atc_001_a.py) |     |
+| [ARC 031 B](./src/arc_031_b.py) |     |
+| [ARC 037 B](./src/arc_037_b.py) |     |
+| [AOJ 1160 ](./src/aoj_1160.py)  |     |
+
+ARC 005 3 器物損壊高橋君を，0-1BFSに帰着させるところが興味深かった．
+
+|                                          |     |
+| ---------------------------------------- | --- |
+| [ABC 007 3](src/abc_007_3.py)            |     |
+| [JOI 2022 E](src/joi_2011yo_e.py)        |     |
+| [ABC 088 D](src/abc_088_d.py)            |     |
+| [AGC 033 A](src/agc_033_a.py)            |     |
+| [ARC 005 3](src/arc_005_3.py)            |     |
+| [AOJ 0502](src/aoj_0502.py)              |     |
+| [ABC 054 C](src/abc_054_c.py)            |     |
+| [JOI 2010 D](src/joi_2010yo_d.py)        |     |
+| [yukicoder No.133](src/yukicoder_133.py) |     | 
