@@ -1,6 +1,12 @@
 # https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=0503
 # 
 # キューには状態を入れる，という発想ができてなかった．
+# 
+# 
+#    A-B, B-Cのどちらかを選んだら，
+#    A<->B, B<->C, A<->B, B<->C
+#    B<->C, A<->B, B<->C, A<->B
+
 
 N, M = map(int, input().split())
 
