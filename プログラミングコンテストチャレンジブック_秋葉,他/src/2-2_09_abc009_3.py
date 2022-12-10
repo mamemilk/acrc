@@ -47,4 +47,15 @@ while True:
     index += 1
 
 
-print(t + ''.join(rest))
+print(t, end='')
+
+rest.sort()
+
+for c in S[len(t):]:
+    if c in rest:
+        print(c, end='')
+        rest.remove(c)
+    else:
+        print(rest.pop(), end='')
+
+print('')
