@@ -1,3 +1,4 @@
+# https://atcoder.jp/contests/tdpc/tasks/tdpc_dice
 N, D = map(int, input().split())
 
 # これだとTLE 

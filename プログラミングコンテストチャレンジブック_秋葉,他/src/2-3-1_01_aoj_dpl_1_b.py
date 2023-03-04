@@ -42,7 +42,9 @@ for i in range(1, N+1):
             tukau = DP[i-1][w-wei] + val
             tukawanai = DP[i-1][w]
             DP[i][w] = max(tukau, tukawanai)
-print(DP[-1][-1])
+        else:
+            DP[i][w] = DP[i-1][w]
+# print(DP[-1][-1])
 
 
 # メモ化
@@ -68,7 +70,7 @@ def memo_search(i,w):
     results[i][w] = ans
 
     return ans
-# print(memo_search(N, W))
+print(memo_search(N, W))
 
 
 

@@ -1,4 +1,5 @@
 # https://atcoder.jp/contests/tdpc/tasks/tdpc_number
+# PythonだとTLE, PyPyだと通った。
 # 自力はギブアップ。こちらのページを参照しました。
 #   https://kanpurin.hatenablog.com/entry/2022/12/16/014741
 #   https://nizi-24.hatenablog.com/entry/2021/08/08/163905
@@ -48,11 +49,13 @@ for i in range(len(N)):
         for n in range(10):
             if n == int(N[i]):
                 DP[i+1][0][(k+n)%D] += DP[i][0][k]
+                DP[i+1][0][(k+n)%D] %= MOD
             elif n < int(N[i]):
                 DP[i+1][1][(k+n)%D] += DP[i][0][k]
 
             DP[i+1][1][(k+n)%D] += DP[i][1][k]
-
+            DP[i+1][1][(k+n)%D] %= MOD
+            
 # import pprint
 # pprint.pprint(DP)  
 print((DP[-1][-1][0]-1)%MOD)
