@@ -9,7 +9,6 @@ class UnionFind():
     def __init__(self, N):
         self.parent = [i for i in range(N+1)]
         self.rank = [0 for _ in range(N+1)]
-        self._members = [ [i] for i in range(N+1)]
         
     def root(self, x):
         return x if self.parent[x] == x else self.root(self.parent[x])
@@ -25,17 +24,11 @@ class UnionFind():
         
         if self.rank[x] < self.rank[y]:
             self.parent[x] = y
-            root = y
         else:
             self.parent[y] = x
-            root = x
             if self.rank[x] == self.rank[y]:
                 self.rank[x] += 1
             
-        self._members[root] = self._members[x] + self._members[y]
-
-    def members(self, x):
-        return self._members[self.root(x)]
 
 
 
