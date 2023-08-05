@@ -3,7 +3,6 @@
 # l, rが同じグループ→すでに拘束条件あり
 
 class UnionFind():
-
     def __init__(self, N):
         self.parent = [i for i in range(N+1)]
         self.rank = [0 for _ in range(N+1)]
@@ -39,13 +38,9 @@ uf = UnionFind(N)
 for _ in range(M):
     l, r, d = map(int, input().split())
     if uf.same(l, r):
-        # print(uf.diff(l,r))
         if d != uf.diff(l,r):
             print('No')
-            exit(-1)
+            exit()
     else:
-        # print('unite', l, r, d)
         uf.unite(l,r,d)
-        # print('p: ', uf.parent)
-        # print('w: ', uf.weight)
 print('Yes')

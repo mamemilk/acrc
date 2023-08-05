@@ -1,4 +1,12 @@
 # https://atcoder.jp/contests/abc049/tasks/arc065_b
+# 
+# 4 1 3
+# road
+# 1 4
+# rail
+# 1 2
+# 2 3
+# 3 4
 
 class UnionFind():
 

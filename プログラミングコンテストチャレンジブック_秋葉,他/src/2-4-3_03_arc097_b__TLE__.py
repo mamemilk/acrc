@@ -48,9 +48,11 @@ for _ in range(M):
 
 ans = 0
 for i in range(1, N+1):
-    for j in uf.members(i):
-        if P[j] == i:
-            ans += 1
-            break
+    if uf.same(i, P[i-1]):
+        ans += 1
+    # for j in uf.members(i):
+    #     if P[j] == i:
+    #         ans += 1
+    #         break
 
 print(ans)

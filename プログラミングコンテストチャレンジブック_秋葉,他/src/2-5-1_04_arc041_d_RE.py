@@ -7,6 +7,9 @@
 # • すべての辺を塗れたら、すぐ “Yes” と判定する。
 # • 奇数長の閉路が完成したら、すぐ “Yes” と判定する。
 # • そうでなければ “No” と判定する
+#
+# 奇数閉路 != 2部グラフ
+
 
 from collections import deque
 
@@ -44,7 +47,7 @@ def bfs(a, c):
     return ans == M
  
  
-for a in range(M):
+for a in range(N):
     for c in ['r', 'b']:
         if bfs(a, c):
             exit(print("Yes"))
