@@ -7,8 +7,6 @@
 #
 # python3だとTLE, pypyでacceptだた．
 
-
-
 class UnionFind():
 
     def __init__(self, N):
