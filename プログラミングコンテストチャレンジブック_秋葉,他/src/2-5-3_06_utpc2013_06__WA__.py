@@ -115,8 +115,6 @@ for _ in range(Q):
             used_es[q] = ans_es
             print_debug('case 4b: ', res, ans_es)
    
-
-
     if res == 0:
         print("IMPOSSIBLE")
     else:
