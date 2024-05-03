@@ -51,7 +51,7 @@ def kukan_eratos(A,B):
 
 A, B = map(int, input().split())
 is_prime, is_prime2 = kukan_eratos(A,B)
-print(is_prime, is_prime2)
+# print(is_prime, is_prime2)
 
 
 num_fact = []

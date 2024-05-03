@@ -1,6 +1,8 @@
 # https://csacademy.com/contest/round-68/task/integer-coords/
 # 
 # 斜め線が何個の格子の上を通るかは，x,yの最大公倍数になる．
+# 
+#   gcd()
 
 import math
 

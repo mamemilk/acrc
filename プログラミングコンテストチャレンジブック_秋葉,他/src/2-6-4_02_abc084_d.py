@@ -25,7 +25,9 @@ for i in range(3, 10**5, 2):
             nitasuuji.append(i)
 
 # print(nitasuuji)    
-            
+
+# 累積和
+
 Q = int(input())
 for _ in range(Q):
     l, r = map(int, input().split())

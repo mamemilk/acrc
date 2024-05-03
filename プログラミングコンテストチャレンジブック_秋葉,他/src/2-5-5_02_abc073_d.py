@@ -1,4 +1,7 @@
 # https://atcoder.jp/contests/abc073/tasks/abc073_d
+# 
+# 鳥海さんの回答の，bfs, 16,17行目が興味深い．
+#   残りの都市が同じ候補の場合は，今のコストが一番小さい奴のみでOK，という戦略．
 
 import itertools
 

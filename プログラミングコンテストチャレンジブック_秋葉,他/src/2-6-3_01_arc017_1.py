@@ -2,16 +2,19 @@
 # 
 
 def eratos(M):
-    arr = [True for _ in range(M+1)] # True when found as prime
-    arr[0] = False
-    arr[1] = False
-    for s in range(2,M+1):
-        if arr[s]: # prime
-            gain = 2
-            while gain * s <= M:
-                arr[gain*s] = False
-                gain += 1
-    return arr
+    is_prime = [True for _ in range(M+1)] # True when found as prime
+    is_prime[0] = False
+    is_prime[1] = False
+    # for s in range(2,):
+    i = 2
+    while i * i <= M:
+        if is_prime[i]: # prime
+            j = i*i
+            while j <= M:
+                is_prime[j] = False
+                j += i
+        i += 1
+    return is_prime
 
 N = int(input())
 # N = 1000000
