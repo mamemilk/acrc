@@ -1,5 +1,6 @@
 # https://atcoder.jp/contests/joi2008ho/tasks/joi2008ho_c
 # 解説読む．
+#   2回得点した合計の集合を，listでもっておいてからsetにする，というのだとMLEで通らず．
 
 from bisect import bisect_left, bisect_right
 
@@ -10,12 +11,12 @@ for _ in range(N):
     Ps.append(int(input()))
 
 # 2回得点した時の合計を作る
-Q = []
+Q = set()
 for pa in Ps:
     for pb in Ps:
-        Q.append(pa+pb)
+        Q.add(pa+pb)
 
-Q = sorted(set(Q))
+Q = sorted(Q)
 
 # print(Q)
 # print(Q[:bisect_right(Q, M)])
