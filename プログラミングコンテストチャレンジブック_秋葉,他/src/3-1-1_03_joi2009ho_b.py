@@ -30,5 +30,3 @@ for oi in Os:
     res += min(oi-Ds[left_index], Ds[right_index]-oi)
 
 print(res)
-
-    
