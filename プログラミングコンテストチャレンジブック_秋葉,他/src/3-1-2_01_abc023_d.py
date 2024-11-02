@@ -18,7 +18,7 @@ while left + 1 < right:
     # 制限時間リスト，**秒までに打たないとNGの，**が入ってる
     candid = sorted(map(lambda hs: (half-hs[0]) // hs[1], HS))
 
-    print(left, half, right)
+    # print(left, half, right)
 
     # 
     is_ok = True

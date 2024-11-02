@@ -2,6 +2,9 @@
 #
 # 解説読みました．
 # でもTLE
+# 
+#   - 足し算の回数が重複してしまう
+#   - setでの存在確認をしてしまっている
 
 N, M = map(int, input().split())
 fi = [int(input()) for _ in range(N)]

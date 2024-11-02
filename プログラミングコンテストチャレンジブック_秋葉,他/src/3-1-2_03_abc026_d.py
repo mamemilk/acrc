@@ -7,7 +7,7 @@ A, B, C = map(int, input().split())
 def func(t):
     return A * t + B * math.sin(C*t*math.pi)
 
-left, right = 0, 100/A
+left, right = 0, (100+B)/A
 
 while True:
     half = (left+right)/2

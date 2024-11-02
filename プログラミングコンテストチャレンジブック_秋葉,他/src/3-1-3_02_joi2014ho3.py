@@ -15,13 +15,17 @@ j = 0
 k = 0 
 wmax = 0
 for i in range(N):
-    while Acum[j] - Acum[i] <= total // 3:
+    while Acum[j] - Acum[i] < total // 3:
         j += 1
     w1 = Acum[j] - Acum[i]
     while Acum[k] - Acum[j] <= (total-w1) // 2:
         k += 1
     w2 = Acum[k] - Acum[j]
     w3 = total-w1-w2
+
+    print(i, j, k, w1, w2, w3, Acum[k-1] - Acum[j])
+    # assert(w1 >= w2)
+    # assert(w2 >= w3)
     wmax = max(wmax, w3, Acum[k-1] - Acum[j])
     
 print(wmax)

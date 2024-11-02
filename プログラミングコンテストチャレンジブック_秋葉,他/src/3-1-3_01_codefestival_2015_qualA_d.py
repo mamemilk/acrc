@@ -10,10 +10,12 @@ for _ in range(M):
 def isok(T):
     D = [0 for _ in range(M + 1)]
 
-    if X[1] > T: 
-        return False
+    # if X[1] > T: 
+    #     return False
     for i in range(1,M+1):
         L = X[i] - D[i-1] - 1
+        if L > T: return False
+
         if i == M:
             R = min(max(T-2*L, (T-L)//2), N-X[i])
         else:
@@ -21,10 +23,10 @@ def isok(T):
         if R < 0:
             R = 0 
         D[i] = X[i] + R
-    print(D)
+    # print(D)
     return D[-1] == N
 
-left, right = 0, 500000
+left, right = 0, 500000 # 3/2
 
 while left+1 != right:
     # print(left, right)
