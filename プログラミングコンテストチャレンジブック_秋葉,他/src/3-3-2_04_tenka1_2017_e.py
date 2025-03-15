@@ -22,6 +22,13 @@
 #      x=-inf でのy座標降順 & x=mでのy座標昇順    転倒数 = (物理的に何を意味するか分からないが交差数の対偶的なもの？)
 # で、後者でも、二分探索のl,rの更新を変えれば計算可能っぽいんだが、後者の意味がいまいち分からん。
 #    
+# koutenga kisu, guusu de care ga hituyou 
+#    交点の数が偶数か奇数かでケアが必要
+#    交点の数が偶数の場合は、交点の数がN*(N-1)/4より大きいかどうかを判定する
+#    交点の数が奇数の場合は、交点の数がN*(N-1)/4より大きいかどうかを判定する
+#    交点の数がN*(N-1)/4より大きい場合は、交点の数がN*(N-1)/4より大きいかどうかを判定する   
+
+import math
 
 class BinaryIndexedTree:
     def __init__(self, size):
@@ -50,7 +57,13 @@ for _ in range(N):
     a,b,c = map(int, input().split())
     ABCi.append((a,b,c))
 
-target_num = N * (N-1) // 4
+Np = N * (N-1) // 2
+target_num = (Np - 1) // 2
+# target_num = Np // 2
+
+print(Np, target_num)
+
+# target_num = (N * (N-1) // 2 - 1) // 2
 
 # print("target_num", target_num)
 

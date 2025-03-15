@@ -17,11 +17,11 @@ class RMQ:
     """
     Queries the segment tree for the minimum value in the range [a, b).
 
-    Args:
+    Args:p: i for i, p in enumerate(sorted(P)
         a (int): The start of the range (inclusive).
         b (int): The end of the range (exclusive).
         k (int, optional): The index of the current node in the segment tree. Defaults to 0.
-        l (int, optional): The left boundary of the current segment. Defaults to 0.
+        l (int, optional): The left boundarp: i for i, p in enumerate(sorted(P)y of the current segment. Defaults to 0.
         r (int, optional): The rigself.initial_valueht boundary of the current segment. Defaults to None.
 
     Returns:
@@ -52,9 +52,6 @@ for _ in range(M):
 
 comp_keys = used.keys()
 forward_map = dict([[p,index] for index, p in enumerate(comp_keys)])
-print(
-    forward_map
-)
 backward_map = dict([[index, p] for index, p in enumerate(comp_keys)])
 
 rmq = RMQ(len(comp_keys), op=affine, initial_value=[1, 0])
@@ -62,12 +59,11 @@ maxim = 1
 minimum = 1
 for c in comp:
     p, a, b = c
-    print(p)
     p_mapped = forward_map[p]
     rmq.update(p_mapped, [a, b])
     res = rmq.query(0, len(comp_keys))
-    maxim = max(maxim, res)
-    minimum = min(minimum, res)
+    maxim = max(maxim, res[0]+res[1])
+    minimum = min(minimum, res[0]+res[1])
 
 print(minimum)
 print(maxim)

@@ -1,6 +1,6 @@
 # https://atcoder.jp/contests/chokudai_S001/tasks/chokudai_S001_j
 # 
-# RMS
+# BIT
 # 
 # length == 8
 #                                    [1,8]     

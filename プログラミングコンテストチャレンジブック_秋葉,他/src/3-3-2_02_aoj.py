@@ -1,6 +1,6 @@
-# https://atcoder.jp/contests/chokudai_S001/tasks/chokudai_S001_j
+# https://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_5_D&lang=jp
 # 
-# RMS
+# BIT
 # 
 # length == 8
 #                                    [1,8]     
@@ -47,11 +47,15 @@ class BinaryIndexedTree:
 size = int(input())
 Ai = list(map(int, input().split()))
 
+# 座標圧縮
+AiMap = {a: index+1 for index, a in enumerate(sorted(Ai))}
+
 bit = BinaryIndexedTree(size)
 
 ans = 0
 for a in Ai:
-    bit.update(a, 1)
-    ans += bit.range_query(a+1,size)
+    apost = AiMap[a]
+    bit.update(apost, 1)
+    ans += bit.range_query(apost+1,size)
 
 print(ans)
