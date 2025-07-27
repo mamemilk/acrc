@@ -24,7 +24,7 @@ for S in range(1<<V):
                     dp[S][u] + cost(u, v)
                     )
 
-print(dp)
+# print(dp)
 
 ans_pre = min(dp[-1])
 if ans_pre == float('inf'):

@@ -12,6 +12,8 @@ dp[0][0] = 0
 def cost(abc, pqr):
     return abs(abc[0]-pqr[0])+abs(abc[1]-pqr[1])+max(0, pqr[2]-abc[2])
 
+# uがすでに訪れた町
+# vがこれから訪れる町
 for S in range(1<<N):
     for v in range(N):
         for u in range(N):
