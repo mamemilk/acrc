@@ -13,7 +13,7 @@ fixeds_dict = {} # 数字が入っているマス用，数字がkeyで，マス�
 unfixeds = [] # 数字が入ってないマスのインデックス
 for j in range(25):
     if x[j]:
-        fixeds_dict[x[j]] = j
+        fixeds_dict[x[j]] = [j]
     else:
         unfixeds.append(j)
 
@@ -29,7 +29,8 @@ for i in range((1<<25)):
     n = sum(i >> j & 1 for j in range(25)) + 1
 
     # nがfixならそのマスだけが候補，層でなければ，空いてるマスが候補
-    candids = [fixeds_dict[n]] if n == fixeds_dict else unfixeds
+    candids = fixeds_dict[n] if n in fixeds_dict else unfixeds
+
     for j in candids:
         # nをjマスに入れていいかチェック．状態iがjを埋めていないか，jマスが空いているかnが入っているか
         if i >> j & 1 == 0 and x[j] in [0, n]:
